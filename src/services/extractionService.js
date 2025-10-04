@@ -2,7 +2,7 @@ const Tesseract = require('tesseract.js');
 const {GoogleGenerativeAI} = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({model:"gemini-pro"});
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 async function extractTextFromImage(filePath){
 console.log(`Processing OCR for iamge: ${filePath}`);
 const result = await Tesseract.recognize(filePath,'eng');
@@ -30,7 +30,7 @@ JSON Output Format:
 }`;
 
 console.log("Sending prompt to AI...");
-const result await model.generateContent(prompt);
+const result = await model.generateContent(prompt);
 const responseText = result.response.text();
 const jsonResponse = JSON.parse(responseText.replace(/```json/g, '').replace(/```/g, ''));
     return jsonResponse;
