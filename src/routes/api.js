@@ -2,11 +2,12 @@
 const express = require('express');
 const multer = require('multer');
 const { extractTextFromImage, getAmountFromAI } = require('../services/extractionService.js');
+const validateRequest = require('../middlewares/validator.js');
 
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' }); 
 
-router.post('/extract_amounts', upload.single('document'), async (req, res) => {
+router.post('/extract_amounts', upload.single('document'),validateRequest, async (req, res) => {
     try {
         let rawText = '';
 
