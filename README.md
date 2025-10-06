@@ -106,7 +106,11 @@ Copy code
 curl -X POST -H "Content-Type: application/json" \
 -d '{"text": "total kharcha hua Rs. 65OO. maine 6k de diya. abhi 500 bal hai."}' \
 https://your-service-name.onrender.com/v1/extract_amounts
+
+
 🧰 Testing with Postman
+
+
 🔹 Raw Text Mode
 Method: POST
 
@@ -127,6 +131,10 @@ Body → form-data
 Key: document → Type: File
 
 Upload your image and send the request.
+
+Troubleshooting (Postman SSL Error):
+If you see EPROTO: WRONG_VERSION_NUMBER in Postman, it’s a client-side SSL issue, not a server error.
+✅ Fix: Go to Postman → Settings → General → SSL Certificate Verification → Turn OFF, then retry the request.
 
 5. 🚧 Known Issues and Potential Improvements
 ⚠️ Known Issues
