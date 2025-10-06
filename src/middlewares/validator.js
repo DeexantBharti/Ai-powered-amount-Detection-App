@@ -19,11 +19,6 @@ const validateRequest = (req, res, next) => {
     }
   }
 
-  // neither a file nor a valid text
-  return res.status(400).json({
-    status: "error",
-    reason: "bad requesst",
-    details: "Request must contain either a image file or the raw text in formatted json"
-  });
+  next();
 };
 module.exports = validateRequest;
